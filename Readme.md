@@ -47,8 +47,16 @@ Siga as etapas abaixo para executar o backend do sistema e realizar os testes:
    mongoose: ^7.3.1
    multer: ^1.4.5-lts.1
    ```
+5. Crie um arquivo .env com as seguintes configurações:
 
-5. Inicie o servidor executando o seguinte comando:
+   ```
+   PORT=porta_do_servidor
+   DB_STR=string_de_conexão_do_mongodb
+   SECRET_KEY=chave_secreta
+   API_KEY=seu_token_fixo
+   ```
+   
+6. Inicie o servidor executando o seguinte comando:
 
    ```
    node server.js
@@ -56,7 +64,7 @@ Siga as etapas abaixo para executar o backend do sistema e realizar os testes:
 
    O servidor estará em execução e fornecerá a API para interagir com o backend do blog.
 
-6. O frontend do blog pode ser desenvolvido separadamente e pode consumir essa API para exibir e manipular os dados do blog.
+7. O frontend do blog pode ser desenvolvido separadamente e pode consumir essa API para exibir e manipular os dados do blog.
 
 ## API Endpoints
 
