@@ -60,6 +60,7 @@ Siga as etapas abaixo para executar o backend do sistema e realizar os testes:
 
    ```
    node server.js
+   npm run start
    ```
 
    O servidor estará em execução e fornecerá a API para interagir com o backend do blog.

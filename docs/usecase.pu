@@ -1,0 +1,39 @@
+@startuml CasosdeUso
+
+left to right direction
+
+actor "Usuário Não Autenticado" as UserNA
+actor "Usuário Autenticado" as UserA
+actor "Administrador" as Admin
+
+rectangle "Sistema de Blog Portfólio" as System {
+  rectangle "Autenticação" as Auth {
+    UserNA --> (Registrar-se no sistema)
+    UserNA --> (Autenticar-se no sistema)
+  }
+
+  rectangle "Gerenciamento de Usuários" as UserManagement {
+    UserA --> (Atualizar o próprio perfil)
+    Admin --> (Criar, atualizar e remover usuários)
+  }
+
+  rectangle "Gerenciamento de Postagens" as PostManagement {
+    UserA --> (Criar, atualizar e remover postagens)
+    UserA --> (Adicionar imagens à postagens)
+    UserA --> (Visualizar histórico de edições da postagem)
+    UserA --> (Remover comentários na própria postagem)
+    UserA --> (Criar, atualizar e remover comentários)
+    Admin --> (Remover comentários de outras postagens)
+    Admin --> (Mandar e-mail para autor da postagem)
+  }
+
+  rectangle "Relatórios" as Reports {
+    Admin --> (Gerar relatório)
+  }
+
+  Auth --> UserManagement
+  UserA --> PostManagement
+  Reports --> PostManagement
+}
+
+@enduml
