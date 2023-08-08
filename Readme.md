@@ -59,8 +59,8 @@ Siga as etapas abaixo para executar o backend do sistema e realizar os testes:
 6. Inicie o servidor executando o seguinte comando:
 
    ```
-   node server.js
    npm run start
+   npm run dev
    ```
 
    O servidor estará em execução e fornecerá a API para interagir com o backend do blog.
