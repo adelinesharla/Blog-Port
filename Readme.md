@@ -1,41 +1,41 @@
-# Blog Desafio
+# Challenge Blog
 
-Este é o backend do projeto de um blog desenvolvido com Node.js. Ele fornece a API para realizar operações CRUD (criar, ler, atualizar e excluir) em users, posts e comentários, lidando com a lógica do servidor. Além disso, também oferece a funcionalidade de gerar relatórios com informações sobre os posts, incluindo a quantidade de comentários, curtidas e visualizações de cada post.
+This is the backend of a blog project developed with Node.js. It provides the API to perform CRUD (create, read, update, and delete) operations on users, posts, and comments, handling server logic. Additionally, it offers the functionality to generate reports with information about the posts, including the number of comments, likes, and views for each post.
 
-## Arquitetura de Camadas
+## Layered Architecture
 
-Este projeto utiliza a arquitetura de camadas para manter uma estrutura organizada e modular. O código está dividido em controllers, services, repositories, models e routes, garantindo uma separação clara das responsabilidades e facilitando a manutenção do sistema.
+This project utilizes a layered architecture to maintain an organized and modular structure. The code is divided into controllers, services, repositories, models, and routes, ensuring a clear separation of responsibilities and facilitating system maintenance.
 
-- Os controllers são responsáveis por receber as requisições HTTP, lidar com a entrada do usuário e acionar os serviços correspondentes para processar a lógica de negócio. Eles também são responsáveis por retornar as respostas adequadas para as requisições.
-- Os services contêm a lógica de negócio principal do sistema. Eles utilizam os repositories para acessar os dados do banco de dados, realizam validações adicionais, aplicam regras de negócio e processam os dados conforme necessário.
-- Os models representam os objetos do banco de dados e definem os esquemas, estruturas e operações de acesso aos dados. Eles são responsáveis por representar as entidades do domínio e as relações entre elas.
-- Os repositories são responsáveis por abstrair o acesso ao banco de dados. Eles encapsulam as consultas e operações de persistência de dados, permitindo que os services interajam com o banco de dados de forma mais modular e independente.
-- As routes definem as rotas da API, mapeando os endpoints para os controllers adequados. Elas determinam a estrutura da API e a forma como os endpoints podem ser acessados.
+- Controllers are responsible for receiving HTTP requests, handling user input, and triggering the corresponding services to process business logic. They are also in charge of returning appropriate responses to the requests.
+- Services contain the system's primary business logic. They use repositories to access database data, perform additional validations, apply business rules, and process data as needed.
+- Models represent the database objects and define the schemas, structures, and data access operations. They are responsible for representing domain entities and the relationships between them.
+- Repositories abstract database access. They encapsulate queries and data persistence operations, allowing services to interact with the database in a more modular and independent manner.
+- Routes define the API's paths, mapping the endpoints to the appropriate controllers. They determine the API's structure and how endpoints can be accessed.
 
-## Stack Utilizada
+## Used Stack
 
-- Node.js (v14.17.0): Plataforma de tempo de execução JavaScript do lado do servidor.
-- Express (v4.17.1): Framework web minimalista para Node.js, utilizado para lidar com as rotas e requisições HTTP.
-- Mongoose (v6.0.1): Biblioteca do Node.js para modelagem de objetos do MongoDB, utilizada para se conectar e interagir com o banco de dados.
-- MongoDB: Banco de dados NoSQL utilizado para armazenar os dados do blog.
+- Node.js (v14.17.0): A server-side JavaScript runtime environment.
+- Express (v4.17.1): A minimalist web framework for Node.js, used for handling routes and HTTP requests.
+- Mongoose (v6.0.1): A Node.js library for MongoDB object modeling, used to connect and interact with the database.
+- MongoDB: A NoSQL database used to store the blog's data.
 
-## Como Executar
+## How to Run
 
-Siga as etapas abaixo para executar o backend do sistema e realizar os testes:
+Follow the steps below to run the system's backend and perform tests:
 
-1. Certifique-se de ter o Node.js (v14.17.0 ou superior) e o MongoDB instalados em seu sistema.
+1. Make sure you have Node.js (v14.17.0 or higher) and MongoDB installed on your system.
 
-2. Clone este repositório para o seu ambiente local.
+2. Clone this repository to your local environment.
 
-3. Navegue até o diretório do projeto no terminal ou prompt de comando.
+3. Navigate to the project directory in the terminal or command prompt.
 
-4. Instale as dependências do projeto utilizando o seguinte comando:
+4. Install the project dependencies using the following command:
 
    ```
    npm install
    ```
 
-   As seguintes dependências serão instaladas:
+   The following dependencies will be installed:
 
    ```
    bcrypt: ^5.1.0
@@ -47,50 +47,50 @@ Siga as etapas abaixo para executar o backend do sistema e realizar os testes:
    mongoose: ^7.3.1
    multer: ^1.4.5-lts.1
    ```
-5. Crie um arquivo .env com as seguintes configurações:
+5. Create a .env file with the following configurations:
 
    ```
-   PORT=porta_do_servidor
-   DB_STR=string_de_conexão_do_mongodb
-   SECRET_KEY=chave_secreta
-   API_KEY=seu_token_fixo
+   PORT=server_port
+   DB_STR=mongodb_connection_string
+   SECRET_KEY=secret_key
+   API_KEY=fixed_token
    ```
    
-6. Inicie o servidor executando o seguinte comando:
+6. Start the server by executing the following command:
 
    ```
    npm run start
    npm run dev
    ```
 
-   O servidor estará em execução e fornecerá a API para interagir com o backend do blog.
+   The server will be running and will provide the API to interact with the blog's backend.
 
-7. O frontend do blog pode ser desenvolvido separadamente e pode consumir essa API para exibir e manipular os dados do blog.
+7. The blog's frontend can be developed separately and can consume this API to display and manipulate the blog data.
 
 ## API Endpoints
 
-A API oferece os seguintes endpoints para interagir com o backend do blog:
+The API provides the following endpoints to interact with the blog's backend:
 
 ### Posts
 
-- **GET /posts**: Retorna todos os posts do blog.
-- **GET /posts/:id**: Retorna um post específico com base no ID fornecido.
-- **POST /posts**: Cria um novo post no blog.
-- **PUT /posts/:id**: Atualiza um post existente com base no ID fornecido.
-- **DELETE /posts/:id**: Exclui um post existente com base no ID fornecido.
+- **GET /posts**: Returns all blog posts.
+- **GET /posts/:id**: Returns a specific post based on the provided ID.
+- **POST /posts**: Creates a new post on the blog.
+- **PUT /posts/:id**: Updates an existing post based on the provided ID.
+- **DELETE /posts/:id**: Deletes an existing post based on the provided ID.
 
-### Comentários
+### Comments
 
-- **GET /comments**: Retorna todos os comentários do blog.
-- **GET /comments/:id**: Retorna um comentário específico com base no ID fornecido.
-- **POST /comments**: Cria um novo comentário no blog.
-- **PUT /comments/:id**: Atualiza um comentário existente com base no ID fornecido.
-- **DELETE /comments/:id**: Exclui um comentário existente com base no ID fornecido.
+- **GET /comments**: Returns all blog comments.
+- **GET /comments/:id**: Returns a specific comment based on the provided ID.
+- **POST /comments**: Creates a new comment on the blog.
+- **PUT /comments/:id**: Updates an existing comment based on the provided ID.
+- **DELETE /comments/:id**: Deletes an existing comment based on the provided ID.
 
-### Relatórios
+### Reports
 
-- **GET /reports/posts**: Gera um relatório com os posts do blog, incluindo o título e a quantidade de comentários de cada post.
+- **GET /reports/posts**: Generates a report with blog posts, including the title and the number of comments for each post.
 
-## Licença
+## License
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
