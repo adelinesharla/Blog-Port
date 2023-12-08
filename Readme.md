@@ -1,4 +1,4 @@
-# Challenge Blog
+# BlogPort
 
 This is the backend of a blog project developed with Node.js. It provides the API to perform CRUD (create, read, update, and delete) operations on users, posts, and comments, handling server logic. Additionally, it offers the functionality to generate reports with information about the posts, including the number of comments, likes, and views for each post.
 
